@@ -27,6 +27,8 @@
 - (NSManagedObjectModel *)managedObjectModel;
 - (NSManagedObjectContext *)managedObjectContext;
 
+- (IBAction)openPreferencesWindow:(id)sender;
+
 - (IBAction)installCliTool:(id)sender;
 
 - (IBAction)saveAction:sender;

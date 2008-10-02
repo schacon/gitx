@@ -43,12 +43,19 @@ static NSString* gitPath = nil;
 		return YES;
 	}
 
+<<<<<<< HEAD:PBGitBinary.m
 	NSLog(@"Found a git binary at %@, but is only version %@", path, version);
 	return NO;
 }
 
 + (void) initialize
 {
+	// Check what we might have in user defaults
+	// NOTE: Currently this should NOT have a registered default, or the searching bits below won't work
+	gitPath = [[NSUserDefaults standardUserDefaults] stringForKey:@"gitExecutable"];
+	if (gitPath.length > 0)
+		return;
+	
 	// Try to find the path of the Git binary
 	char* path = getenv("GIT_PATH");
 	if (path && [self acceptBinary:[NSString stringWithCString:path]])

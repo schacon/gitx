@@ -55,7 +55,7 @@ static NSString* gitPath = nil;
 	gitPath = [[NSUserDefaults standardUserDefaults] stringForKey:@"gitExecutable"];
 	if (gitPath.length > 0)
 		return;
-	
+
 	// Try to find the path of the Git binary
 	char* path = getenv("GIT_PATH");
 	if (path && [self acceptBinary:[NSString stringWithCString:path]])

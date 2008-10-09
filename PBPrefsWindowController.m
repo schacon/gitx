@@ -16,9 +16,9 @@
 - (void)setupToolbar
 {
 	// GENERAL
-	[self addView:generalPrefsView 
-			label:@"General" 
-			image:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gitx" ofType:@"icns"]]];	
+	[self addView:generalPrefsView
+			label:@"General"
+			image:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gitx" ofType:@"icns"]]];
 	// UPDATES
 	[self addView:updatesPrefsView label:@"Updates"];
 }
@@ -40,7 +40,7 @@
 	[openPanel setTreatsFilePackagesAsDirectories:YES];
 	[openPanel setAccessoryView:gitPathOpenAccessory];
 	//[[openPanel _navView] setShowsHiddenFiles:YES];
-	
+
 	gitPathOpenPanel = openPanel;
 }
 

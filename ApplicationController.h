@@ -11,7 +11,7 @@
 
 @class PBCLIProxy;
 
-@interface ApplicationController : NSObject 
+@interface ApplicationController : NSObject
 {
 	IBOutlet NSWindow *window;
 	IBOutlet id firstResponder;

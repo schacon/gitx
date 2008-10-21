@@ -52,3 +52,38 @@ table.diff tr td a.stagebutton {
 	-webkit-border-radius: 2px;
 	float: left;
 }
+
+code div .button {
+	margin-top: 1px;
+	margin-right: 10px;
+	display: none;
+	float: right;
+
+	padding-left: 4px;
+	padding-right: 4px;
+
+	font-family: 'Lucida Grande';
+	font-size: 60%;
+	text-decoration: none;
+	text-align: center;
+
+	border: 1px solid gray;
+	-webkit-border-radius: 2px;
+	color: gray;
+	background-color: #FAFAFA;
+}
+
+code .addline:hover {
+	border: 2px solid #7AF451;
+	-webkit-border-radius: 4px;
+}
+
+code .delline:hover {
+	border: 2px solid #FA5035;
+	-webkit-border-radius: 4px;
+}
+
+code .addline:hover .button, code .delline:hover .button {
+	display: block;
+}
+

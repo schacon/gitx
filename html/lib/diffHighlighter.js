@@ -47,11 +47,11 @@ var highlightDiffs = function() {
 
 				line1 += "\n";
 				line2 += ++hunk_start_line_2 + "\n";
-				diffContent += "<div class='addline'>" + l + "</div>";
+				diffContent += "<div class='addline'>" + l + "<a class='button' href=''>Add Line</a></div>";
 			} else if (firstChar == "-") {
 				line1 += ++hunk_start_line_1 + "\n";
 				line2 += "\n";
-				diffContent += "<div class='delline'>" + l + "</div>";
+				diffContent += "<div class='delline'>" + l + "<a class='button' href=''>Remove Line</a></div>";
 			} else if (firstChar == "@") {
 				header = false;
 				if (m = l.match(/@@ \-([0-9]+),\d+ \+(\d+),\d+ @@/))

@@ -30,7 +30,7 @@ typedef enum {
 @property (assign) BOOL hasUnstagedChanges;
 - (NSImage *)icon;
 - (NSString *)cachedChangesAmend:(BOOL)amend;
-- (NSString *)unstagedChanges;
+- (NSString *)unstagedChangesContext:(int)c;
 
 - (void) stageChanges;
 - (void) unstageChangesAmend:(BOOL)amend;

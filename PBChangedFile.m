@@ -28,12 +28,14 @@
 	return [repository outputInWorkdirForArguments:[NSArray arrayWithObjects:@"diff", @"--cached", @"--", path, nil]];
 }
 
-- (NSString *)unstagedChanges
+- (NSString *)unstagedChangesContext:(int)c
 {
+	NSString *contextString = [NSString stringWithFormat:@"-U%i", c];
+	NSLog(@"Context: %i", c);
 	if (status == NEW)
 		return [PBEasyPipe outputForCommand:@"/bin/cat" withArgs:[NSArray arrayWithObject:path] inDir:[repository workingDirectory]];
 
-	return [repository outputInWorkdirForArguments:[NSArray arrayWithObjects:@"diff", @"--", path, nil]];
+	return [repository outputInWorkdirForArguments:[NSArray arrayWithObjects:@"diff", contextString, @"--", path, nil]];
 }
 
 

@@ -52,3 +52,8 @@ table.diff tr td a.stagebutton {
 	-webkit-border-radius: 2px;
 	float: left;
 }
+
+#contextSize {
+	float: right;
+	margin-right: 20px;
+}

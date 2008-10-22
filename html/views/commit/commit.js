@@ -12,29 +12,49 @@ var showNewFile = function(file)
 	diff.style.display = '';
 }
 
+var _file;
+var _cached;
+var _previousContext;
+
 var showFileChanges = function(file, cached) {
-	$("diff").style.display = 'none';
 	hideNotification();
 
 	if (file.status == 0) // New file?
 		return showNewFile(file);
 
+	_file = file;
+	_cached = cached;
+
+	$("contextSize").oninput = function() {
+		if ($("contextSize").value == _previousContext)
+			return;
+		_previousContext = $("contextSize").value;
+		showDiff();
+	};
+
+	showDiff();
+}
+
+var showDiff = function()
+{
+	$("diff").style.display = 'none';
 	var changes;
-	if (cached) {
-		$("title").innerHTML = "Staged changes for " + file.path;
-		changes = file.cachedChangesAmend_(Controller.amend());
+	if (_cached) {
+		$("status").innerHTML = "Staged changes for " + _file.path;
+		changes = _file._cachedChangesAmend_(Controller.amend());
 	}
 	else {
-		$("title").innerHTML = "Unstaged changes for " + file.path;
-		changes = file.unstagedChanges();
+		$("status").innerHTML = "Unstaged changes for " + _file.path;
+		changes = _file.unstagedChangesContext_($("contextSize").value);
 	}
 
 	if (changes == "") {
-		notify("This file has no more changes", 1);
+		notify("This _file has no more changes", 1);
 		return;
 	}
 
-	displayDiff(changes, cached);
+
+	displayDiff(changes, _cached);
 	$("diff").style.display = '';
 }
 

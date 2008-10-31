@@ -43,7 +43,6 @@ static NSString* gitPath = nil;
 		return YES;
 	}
 
-<<<<<<< HEAD:PBGitBinary.m
 	NSLog(@"Found a git binary at %@, but is only version %@", path, version);
 	return NO;
 }

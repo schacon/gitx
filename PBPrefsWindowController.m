@@ -16,9 +16,7 @@
 - (void)setupToolbar
 {
 	// GENERAL
-	[self addView:generalPrefsView
-			label:@"General"
-			image:[[NSImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gitx" ofType:@"icns"]]];
+	[self addView:generalPrefsView label:@"General" image:[NSImage imageNamed:@"gitx"]];
 	// UPDATES
 	[self addView:updatesPrefsView label:@"Updates"];
 }
@@ -49,8 +47,9 @@
 
 - (IBAction) showHideAllFiles: sender
 {
-	/* This produces a few warnings, not sure if they are turn-off-able. */
-	[[gitPathOpenPanel _navView] setShowsHiddenFiles:[sender state] == NSOnState];
+	/* FIXME: This uses undocumented OpenPanel features to show hidden files! */
+	NSNumber *showHidden = [NSNumber numberWithBool:[sender state] == NSOnState];
+	[[gitPathOpenPanel valueForKey:@"_navView"] setValue:showHidden forKey:@"showsHiddenFiles"];
 }
 
 @end
